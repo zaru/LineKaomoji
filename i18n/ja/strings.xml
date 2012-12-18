@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
 	<string name="welcome">%sへようこそ!</string>
+	<string name="menu_kaomoji">顔文字</string>
+	<string name="menu_favorite">お気に入り</string>
+	<string name="menu_app">おすすめアプリ</string>
+	<string name="win_kaomoji">顔文字</string>
 </resources>
