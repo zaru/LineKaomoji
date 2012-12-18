@@ -6,6 +6,6 @@ module.exports = {
 	WINDOWKAOMOJI:  ui + 'WindowKaomoji',
 	WINDOWFAVORITE:  ui + 'WindowFavorite',
 	WINDOWAPP:  ui + 'WindowApp',
+	WINDOWHISTORY: ui + 'WindowHistory',
 	STYLES: ui + 'Styles'
-	
 }
