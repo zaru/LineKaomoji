@@ -90,10 +90,20 @@ module.exports = function(){
 		backgroundColor:'transparent',
 		separatorStyle:Ti.UI.iPhone.TableViewSeparatorStyle.NONE,
 		separatorColor:'transparent',
+		bottom:Tools.pixelToDp(50),
 	});
 	tableView.data = inputData;
 	
 	win.add(tableView);
+	
+	var adView = Ti.UI.createWebView({
+		width:Tools.pixelToDp(320),
+		height:Tools.pixelToDp(50),
+		bottom:0,
+		scrollsToTop:false,
+		url:'/ad/ad.html',
+	});
+	win.add(adView);
 	
 	return win;
 	
