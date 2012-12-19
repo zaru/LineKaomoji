@@ -1,6 +1,8 @@
 var Tools = require('/app/Tools');
 var Mods = require('/ModulePaths');
 var WindowHistory = require(Mods.WINDOWHISTORY);
+var WindowList = require(Mods.WINDOWLIST);
+var ViewHelp = require(Mods.VIEWHELP);
 var Styles = require(Mods.STYLES);
 
 module.exports = function(){
@@ -11,38 +13,49 @@ module.exports = function(){
 	win.leftNavButton = btHistory;
 	win.rightNavButton = btHelp;
 	
+	/*
+	 * Android用メニュー
+	 */
+	if (Titanium.Platform.osname === 'android') {
+		win.activity.onCreateOptionsMenu = function(e) {
+			var menu = e.menu;
+			var menuHelp = menu.add({ title: L('menu_help') });
+			menuHelp.addEventListener('click', function(){
+				var viewHelp = new ViewHelp(win);
+			});
+		};
+	}
+	
+	/*
+	 * 履歴ウインドウ
+	 */
 	btHistory.addEventListener('click', function(){
 		var winHistory = new WindowHistory();
 		winHistory.open();
 	});
 	
+	/*
+	 * ヘルプウインドウ
+	 */
+	btHelp.addEventListener('click', function(){
+		var viewHelp = new ViewHelp(win);
+	});
+	
 	var inputData = [];
 	
 	for(var i=0;i<30;i++){
-		if(i%5 == 0){
-			var row = Ti.UI.createTableViewRow({
-				backgroundImage:'/images/common/bg_section.png',
-				color:'#ff0000',
-				height:Tools.pixelToDp(25),
-			});
-			var title = Ti.UI.createLabel({
-				text:'ベーシック系',
-				color:'#494949',
-				font:{fontSize:14},
-				left:Tools.pixelToDp(32),
-			});
-			var label = Ti.UI.createLabel({
-				text:'普段使いにぴったり',
-				color:'#a9a9a9',
-				font:{fontSize:12},
-				right:Tools.pixelToDp(8),
-			});
-			var icon = Ti.UI.createImageView({
-				image:'/images/icon/icon_1.png',
-				width:Tools.pixelToDp(16),
-				height:Tools.pixelToDp(16),
-				left:Tools.pixelToDp(8),
-			});
+		if(i % 5 == 0){
+			var row = Ti.UI.createTableViewRow(Styles.rowSection);
+			
+			var title = Ti.UI.createLabel(Styles.rowSectionTitle);
+			title.text = 'ベーシック系';
+			
+			var label = Ti.UI.createLabel(Styles.rowSectionText);
+			label.text = '普段使いにぴったり';
+			
+			var icon = Ti.UI.createImageView(Styles.rowSectionIcon);
+			icon.image = '/images/icon/icon_1.png';
+			
 			row.add(title);
 			row.add(label);
 			row.add(icon);
@@ -51,27 +64,19 @@ module.exports = function(){
 				height:Tools.pixelToDp(44),
 			});
 			
-			var bt1 = Ti.UI.createButton({
-				backgroundImage:'/images/common/bg_bt.png',
-				color:'#535353',
-				title:'顔文字です',
-				width:Tools.pixelToDp(148),
-				height:Tools.pixelToDp(38),
-				left:Tools.pixelToDp(8),
-				top:Tools.pixelToDp(3),
-			});
-			var bt2 = Ti.UI.createButton({
-				backgroundImage:'/images/common/bg_bt.png',
-				color:'#535353',
-				title:'顔文字です',
-				width:Tools.pixelToDp(148),
-				height:Tools.pixelToDp(38),
-				right:Tools.pixelToDp(8),
-				top:Tools.pixelToDp(3),
-			});
+			var bt1 = Ti.UI.createButton(Styles.rowListLeft);
+			bt1.title = '顔文字です';
+			
+			var bt2 = Ti.UI.createButton(Styles.rowListRight);
+			bt2.title = '顔文字です';
+			
 			bt1.addEventListener('click', function(){
-				win.containingTab.open(Ti.UI.createWindow({
-				}));
+				var winList = new WindowList();
+				win.containingTab.open(winList,{animated:true});
+			});
+			bt2.addEventListener('click', function(){
+				var winList = new WindowList();
+				win.containingTab.open(winList,{animated:true});
 			});
 			
 			row.add(bt1);

@@ -6,7 +6,12 @@ module.exports = {
 	windowNormal:{
 		barColor:'#2a3d5d',
 		barImage:'/images/common/bg_header.png',
+		backgroundColor:'#bef932',
 		backgroundImage:'/images/common/bg.png',
+	},
+	//通常のTable
+	tableNormal:{
+		separatorColor:'#e3e3e3',
 	},
 	//履歴ボタン
 	btHistory:{
@@ -19,5 +24,95 @@ module.exports = {
 		backgroundImage:'/images/common/bt_help.png',
 		width:Tools.pixelToDp(39),
 		height:Tools.pixelToDp(31),
-	}
+	},
+	//顔文字リスト（セクション）
+	rowSection:{
+		backgroundImage:'/images/common/bg_section.png',
+		height:Tools.pixelToDp(25),
+	},
+	//顔文字リスト（セクション：タイトル）
+	rowSectionTitle:{
+		color:'#494949',
+		font:{fontSize:14},
+		left:Tools.pixelToDp(32),
+	},
+	//顔文字リスト（セクション：補足説明）
+	rowSectionText:{
+		color:'#a9a9a9',
+		font:{fontSize:12},
+		right:Tools.pixelToDp(8),
+	},
+	//顔文字リスト（セクション：アイコン）
+	rowSectionIcon:{
+		width:Tools.pixelToDp(16),
+		height:Tools.pixelToDp(16),
+		left:Tools.pixelToDp(8),
+	},
+	//顔文字リスト（左）
+	rowListLeft:{
+		backgroundImage:'/images/common/bg_bt.png',
+		color:'#535353',
+		width:Tools.pixelToDp(148),
+		height:Tools.pixelToDp(38),
+		left:Tools.pixelToDp(8),
+		top:Tools.pixelToDp(3),
+	},
+	//顔文字リスト（右）
+	rowListRight:{
+		backgroundImage:'/images/common/bg_bt.png',
+		color:'#535353',
+		width:Tools.pixelToDp(148),
+		height:Tools.pixelToDp(38),
+		right:Tools.pixelToDp(8),
+		top:Tools.pixelToDp(3),
+	},
+	//顔文字詳細
+	rowDetail:{
+		backgroundColor:'#efefef',
+		height:Tools.pixelToDp(49),
+		touchEnabled : false,
+		selectionStyle:'selectionStyle'
+	},
+	//顔文字詳細（アニメーション用View）
+	rowDetailView:{
+		backgroundColor:'#efefef',
+		height:Tools.pixelToDp(49),
+		width:'100%',
+	},
+	//顔文字詳細（お気に入りボタン）
+	rowDetailBtFavorite:{
+		image:'/images/list/bt_favorite.png',
+		width:Tools.pixelToDp(22),
+		height:Tools.pixelToDp(21),
+		left:Tools.pixelToDp(9),
+	},
+	//顔文字詳細（本体）
+	rowDetailLabel:{
+		color:'#ec6941',
+		font:{fontSize:14},
+		left:Tools.pixelToDp(35),
+	},
+	//顔文字詳細（コピー用View）
+	rowDetailCopy:{
+		height:Tools.pixelToDp(49),
+		left:Tools.pixelToDp(35),
+		right:Tools.pixelToDp(50),
+	},
+	//顔文字詳細（LINE開くボタン）
+	rowDetailBtOpen:{
+		image:'/images/list/bt_open.png',
+		width:Tools.pixelToDp(42),
+		height:Tools.pixelToDp(29),
+		right:Tools.pixelToDp(7),
+	},
+	//アニメーション（タッチ始め）
+	animeTouchBegin:{
+		backgroundColor:'#cccccc',
+		duration:100
+	},
+	//アニメーション（タッチ終わり）
+	animeTouchEnd:{
+		backgroundColor:'#efefef',
+		duration:500
+	},
 };

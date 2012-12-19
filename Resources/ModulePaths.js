@@ -7,5 +7,7 @@ module.exports = {
 	WINDOWFAVORITE:  ui + 'WindowFavorite',
 	WINDOWAPP:  ui + 'WindowApp',
 	WINDOWHISTORY: ui + 'WindowHistory',
+	WINDOWLIST: ui + 'WindowList',
+	VIEWHELP: ui + 'ViewHelp',
 	STYLES: ui + 'Styles'
 }

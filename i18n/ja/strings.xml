@@ -4,6 +4,7 @@
 	<string name="menu_kaomoji">顔文字</string>
 	<string name="menu_favorite">お気に入り</string>
 	<string name="menu_app">おすすめアプリ</string>
+	<string name="menu_help">ヘルプ</string>
 	<string name="win_kaomoji">顔文字</string>
 	<string name="win_history">履歴</string>
 </resources>
