@@ -49,7 +49,6 @@ module.exports = function(){
 	 */
 	var file = Ti.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory + '/db/Category.json');
 	var json = file.read().toString();
-	Ti.API.debug('json length = ' + json.length);
 	if (json && json.length > 0) {
 		var jsonCategory = JSON.parse(json);
 		for(var i=0;i<jsonCategory.length;i++){
