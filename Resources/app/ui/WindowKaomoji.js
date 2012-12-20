@@ -41,8 +41,40 @@ module.exports = function(){
 		var viewHelp = new ViewHelp(win);
 	});
 	
+	
 	var inputData = [];
 	
+	/*
+	 * 顔文字カテゴリのJSON読み込み
+	 */
+	var file = Ti.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory + '/db/Category.json');
+	var json = file.read().toString();
+	Ti.API.debug('json length = ' + json.length);
+	if (json && json.length > 0) {
+		var jsonCategory = JSON.parse(json);
+		for(var i=0;i<jsonCategory.length;i++){
+			var category = jsonCategory[i];
+			
+			var row = Ti.UI.createTableViewRow(Styles.rowSection);
+			
+			var title = Ti.UI.createLabel(Styles.rowSectionTitle);
+			title.text = category.Title;
+			
+			var label = Ti.UI.createLabel(Styles.rowSectionText);
+			label.text = category.Message;
+			
+			var icon = Ti.UI.createImageView(Styles.rowSectionIcon);
+			icon.image = '/images/icon/' + category.Id + '.png';
+			
+			row.add(title);
+			row.add(label);
+			row.add(icon);
+			
+			inputData.push(row);
+		}
+	}
+	
+	/*
 	for(var i=0;i<30;i++){
 		if(i % 5 == 0){
 			var row = Ti.UI.createTableViewRow(Styles.rowSection);
@@ -85,6 +117,7 @@ module.exports = function(){
 		
 		inputData.push(row);
 	}
+	*/
 	
 	var tableView = Titanium.UI.createTableView({
 		backgroundColor:'transparent',
